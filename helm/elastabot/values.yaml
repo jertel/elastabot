@@ -1,0 +1,24 @@
+replicaCount: 1
+image:
+  repository: jertel/elastabot
+  tag: latest
+  pullPolicy: IfNotPresent
+elasticsearch:
+  host: elasticsearch
+  port: 9200
+  timeout: 10
+elastalert:
+  recentAlertMinutes: 4320
+  defaultSilenceMinutes: 240
+smtp:
+  host: ""
+  port: 25
+  secure: False
+  starttls: False
+  timeoutSeconds: 4
+  to: ""
+  from: ""
+  subjectPrefix: ""
+  debug: False
+commandPrefix: "!"
+triageTarget: smtp

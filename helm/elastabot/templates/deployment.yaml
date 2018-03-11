@@ -1,0 +1,62 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: elastabot
+  labels:
+    app: elastabot
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: elastabot
+        app: elastabot
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: elastabot
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+          - name: ELASTICSEARCH_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: logit-secrets
+                key: elasticsearchUsername
+          - name: ELASTICSEARCH_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: logit-secrets
+                key: elasticsearchPassword
+          - name: SLACK_BOT_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: logit-secrets
+                key: slackBotToken
+          - name: SMTP_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: logit-secrets
+                key: smtpUsername
+          - name: SMTP_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: logit-secrets
+                key: smtpPassword
+        volumeMounts:
+          - name: config
+            mountPath: /opt/elastabot/json
+            subPath: json
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
+      restartPolicy: Always
+      volumes:
+        - name: config
+          configMap:
+            name: elastabot-config
+            items:
+            - key: json
+              path: json
