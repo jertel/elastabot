@@ -84,6 +84,7 @@ class Elastabot():
     msg = response.strip().replace("${prefix}", self.conf['commandPrefix'])
     client.api_call(
         "chat.postMessage",
+        as_user=True,
         channel=channel,
         text=msg or default_response
     )
