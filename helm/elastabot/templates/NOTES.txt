@@ -1,0 +1,7 @@
+Elastabot has been deployed successfully!
+
+Note:
+- An Elasticsearch host is required to be up and accessible by this pod.
+- A valid Slack bot token must have been provided as an environment variable secret
+
+If both conditions have been met then you should be able to interact with this bot within your Slack community. Try sending the bot a direct message with the message !help.

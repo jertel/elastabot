@@ -26,7 +26,7 @@ def isAlertFiring(es, index, recentMinutes, alert):
   results = es.count(index=index, q='alert_time:[now-' + str(recentMinutes) + 'm TO now] AND rule_name:%s'+alert)
   return results['count'] > 0
 
-# Acknowledges an ElastAlert rule
+# Acknowledges an Elastalert rule
 def ack(conf, args):
   recentMinutes = conf['elastalert']['recentMinutes']
   defaultDurationMinutes = conf['elastalert']['silenceMinutes']

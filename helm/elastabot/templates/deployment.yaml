@@ -1,3 +1,4 @@
+{{ if .Values.elasticsearch.host }}
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
@@ -24,27 +25,27 @@ spec:
           - name: ELASTICSEARCH_USERNAME
             valueFrom:
               secretKeyRef:
-                name: logit-secrets
+                name: elastabot-secrets
                 key: elasticsearchUsername
           - name: ELASTICSEARCH_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: logit-secrets
+                name: elastabot-secrets
                 key: elasticsearchPassword
           - name: SLACK_BOT_TOKEN
             valueFrom:
               secretKeyRef:
-                name: logit-secrets
+                name: elastabot-secrets
                 key: slackBotToken
           - name: SMTP_USERNAME
             valueFrom:
               secretKeyRef:
-                name: logit-secrets
+                name: elastabot-secrets
                 key: smtpUsername
           - name: SMTP_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: logit-secrets
+                name: elastabot-secrets
                 key: smtpPassword
         volumeMounts:
           - name: config
@@ -60,3 +61,4 @@ spec:
             items:
             - key: json
               path: json
+{{- end }}

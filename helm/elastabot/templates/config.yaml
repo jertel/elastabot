@@ -13,9 +13,9 @@ data:
       "elasticsearch": {
         "host": "{{ .Values.elasticsearch.host }}",
         "port": {{ .Values.elasticsearch.port }},
-        "sslEnabled": false,
-        "sslStrictEnabled": false,
-        "timeoutSeconds": {{ .Values.elasticsearch.timeout }},
+        "sslEnabled": {{ .Values.elasticsearch.sslEnabled }},
+        "sslStrictEnabled": {{ .Values.elasticsearch.sslStrictEnabled }},
+        "timeoutSeconds": {{ .Values.elasticsearch.timeoutSeconds }},
         "urlPrefix":""
       },
       "elastalert": {

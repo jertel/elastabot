@@ -1,6 +1,6 @@
 FROM alpine
 
-LABEL description="SlackBot for Elasticsearch, ElastAlert, and more!"
+LABEL description="SlackBot for Elastalert"
 LABEL maintainer="Jason Ertel (jertel at codesim.com)"
 
 RUN apk --update upgrade && \
