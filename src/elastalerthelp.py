@@ -10,12 +10,7 @@ log = logging.getLogger('elastalert')
 def findNewestAlert(es, index, recentMinutes, name):
   alert = None
   details = None
-  query = {'term': {'rule_name': '*'}}
-  sort = {'sort': {'alert_time': {'order': 'desc'}}}
-  query = {'query': query}
-  query.update(sort)
-
-  res = es.search(index=index, size=1, q='alert_time:[now-' + str(recentMinutes) + 'm TO now] AND !rule_name:Deadman* AND rule_name:' + name , _source_include=['rule_name', 'match_body'])
+  res = es.search(index=index, size=1, sort='alert_time:asc', q='alert_time:[now-' + str(recentMinutes) + 'm TO now] AND !rule_name:Deadman* AND rule_name:' + name , _source_include=['rule_name', 'match_body'])
   if res['hits']['hits']:
     alert = res['hits']['hits'][0]['_source']['rule_name']
     details = res['hits']['hits'][0]['_source']['match_body']
