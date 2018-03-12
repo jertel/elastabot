@@ -7,7 +7,7 @@
 To install the chart with the release name `my-release`:
 
 ```console
-$ helm install --name my-release stable/elastabot
+helm install --name my-release stable/elastabot
 ```
 
 The command deploys Elastabot on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation. The [secrets](#secrets) section lists the required Kubernetes secrets.
@@ -17,7 +17,7 @@ The command deploys Elastabot on the Kubernetes cluster in the default configura
 To uninstall/delete the my-release deployment:
 
 ```console
-$ helm delete my-release
+helm delete my-release
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -54,7 +54,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following environment variable secrets are required to be present in order for this chart to deploy:
 
-| variable               | required | description 
+| variable               | required | description
 |------------------------|----------|------------
 | SLACK_BOT_TOKEN        | true  | The Slack-generated bot token, provided by slack.com
 | ELASTICSEARCH_USERNAME | false | Optional Elasticsearch username, provided by your ES admin
