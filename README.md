@@ -112,7 +112,7 @@ The following environment variables are used as inputs for sensitive information
 
 A Dockerfile is provided for Elastabot, and a Docker image will auto-build at hub.docker.com/jertel/elastabot.
 
-The image will expect a configuration file to exist in the /opt/elastabot/elastabot.json location, so the recommanded way to configure Elastabot is to use a file-based volume mount override from the host to this location.
+The image will expect a configuration file to exist in the /opt/elastabot/elastabot.json location, so the recommended way to configure Elastabot is to use a file-based volume mount override from the host to this location.
 
 Ex:
 
