@@ -105,8 +105,8 @@ The following environment variables are used as inputs for sensitive information
 | SLACK_BOT_TOKEN        | true  | The Slack-generated bot token, provided by slack.com
 | ELASTICSEARCH_USERNAME | false | Optional Elasticsearch username, provided by your ES admin
 | ELASTICSEARCH_PASSWORD | false | Optional Elasticsearch password, provided by your ES admin
-| SMTP_USERNAME          | false | Optioanl SMTP username, provided by your SMTP admin
-| SMTP_PASSWORD          | false | Optioanl SMTP password, provided by your SMTP admin
+| SMTP_USERNAME          | false | Optional SMTP username, provided by your SMTP admin
+| SMTP_PASSWORD          | false | Optional SMTP password, provided by your SMTP admin
 
 ## Docker
 
