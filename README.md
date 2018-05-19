@@ -74,10 +74,13 @@ Examples:
 * Acknowledge the most recently triggered alert and start the triage process:
 ```
 !ack ?
+```
+
 Response:
 ```
 Acknowledged alert *IDS Offline* until 2018-05-18 16:59:13.595827 UTC
 Triage process has started
+```
 
 * Acknowledge the most recently triggered alert for rule *IDS Offline* for the next 2 hours (no triage in this example):
 ```
