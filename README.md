@@ -11,6 +11,23 @@ Slack bot that listens for commands from Slack users to:
 
 Slack users can search the Elasticsearch cluster for arbitrary search criteria, using the Lucene syntax. This can be useful for maintaining a history of searches, but needs to be used with caution. Certain Slack communities with public access should not enable this feature if the Elasticsearch cluster contains sensitive data.
 
+Ex:
+
+Generic search across all indices and fields
+```
+!search hello
+```
+
+Provide 3 most recent records that match this search
+```
+!search hello|3
+```
+
+Specific index and field match:
+```
+!search _index:"myindex-*" message:hello
+```
+
 ## Cluster Health 
 
 Display the current health state of the Elasticsearch cluster, including number of active nodes, queue wait times, and more.
