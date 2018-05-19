@@ -9,6 +9,7 @@ import sys
 import argparse
 import json
 import elastalerthelp
+import elastichelp
 import triage
 from slackclient import SlackClient
 
@@ -74,7 +75,11 @@ class Elastabot():
   def handle_command(self, client, command, args, channel, user):
     default_response = "Unrecognized command; Try !help"
     response = None
-    if command == "ack":
+    if command == "search":
+      response = elastichelp.search(self.conf, args)
+    elif command == "health":
+      response = elastichelp.health(self.conf, args)
+    elif command == "ack":
       response = elastalerthelp.ack(self.conf, args)
     elif command == "triage":
       response = triage.triage(self.conf, args)
@@ -91,6 +96,8 @@ class Elastabot():
 
   def help(self):
     return """Supported commands:```
+${prefix}search   - Perform Elasticsearch search
+${prefix}health   - Show Elasticsearch health
 ${prefix}ack      - Silence an alert with optional triage
 ${prefix}triage   - Triage an arbitrary issue
 ${prefix}help     - This help message
