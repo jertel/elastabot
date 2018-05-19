@@ -17,12 +17,14 @@ Examples:
 ```
 !search hello
 ```
+Response:
+```
 Found 672664 matching record(s), showing 1:
-```index: myindex-2018.05.19
+index: myindex-2018.05.19
  @timestamp: 2018-05-19T14:12:52.141Z
  message: hello
  @version: 1
- ```
+```
  
 * Provide 3 most recent records that match this search
 ```
@@ -44,9 +46,10 @@ Example:
 ```
 !health
 ```
-
+Response:
+```
 Elasticsearch Cluster Health -> yellow
-                    ```Name: docker-cluster
+                    Name: docker-cluster
                    Nodes: 1
               Data Nodes: 1
            Active Shards: 817 (50%)
@@ -54,7 +57,8 @@ Elasticsearch Cluster Health -> yellow
        Unassigned Shards: 795
            Pending Tasks: 0
           Inflight Tasks: 0
-       Max Queue Time MS: 0```
+       Max Queue Time MS: 0
+```
 
 
 ## Acknowledge Elastalerts
@@ -70,6 +74,7 @@ Examples:
 * Acknowledge the most recently triggered alert and start the triage process:
 ```
 !ack ?
+Response:
 ```
 Acknowledged alert *IDS Offline* until 2018-05-18 16:59:13.595827 UTC
 Triage process has started
@@ -90,6 +95,10 @@ Examples:
 * Start the triage process to investigate a drop in user logins:
 ```
 !triage Unexpected drop in user logins
+```
+Response:
+```
+Triage process has started
 ```
 
 ## Slack Commands
