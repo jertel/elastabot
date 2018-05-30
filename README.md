@@ -215,4 +215,4 @@ docker run --rm -v /host/path/elastabot.json:/opt/elastabot/elastabot.json jerte
 
 ## Kubernetes
 
-Elastabot was originally written for installation into a Kubernetes cluster via Helm. A chart is pending acceptance into the Kubernetes master chart repository.
+Elastabot was originally written for installation into a Kubernetes cluster via Helm. A chart is available in the official Kubernetes chart repository: https://github.com/kubernetes/charts/tree/master/stable/elastabot
