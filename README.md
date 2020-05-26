@@ -237,10 +237,10 @@ The command deploys Elastabot on the Kubernetes cluster in the default configura
 
 ### Uninstalling the Chart
 
-To uninstall/delete the my-release deployment:
+To uninstall/delete the elastabot deployment:
 
 ```console
-helm delete my-release --purge
+helm delete elastabot --purge
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
