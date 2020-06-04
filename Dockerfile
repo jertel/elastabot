@@ -4,7 +4,7 @@ LABEL description="SlackBot for Elastalert"
 LABEL maintainer="Jason Ertel (jertel at codesim.com)"
 
 RUN apk --update upgrade && \
-    apk add ca-certificates python2 py2-pip openssl && \
+    apk add ca-certificates gcc python3-dev musl-dev py3-pip openssl && \
     rm -rf /var/cache/apk/*
 
 RUN pip install elasticsearch slackclient
