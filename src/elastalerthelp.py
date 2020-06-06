@@ -83,7 +83,7 @@ The following examples will acknowledge the most recent triggered alert:
           '@timestamp': timenow,
           'until': until}
   try:
-    es.index(index=conf["elastalert"]["index"] + "_silence", doc_type='silence', body=body)
+    es.index(index=conf["elastalert"]["index"] + "_silence", body=body)
     response = "Acknowledged alert *" + name + "* until " + str(until) + " UTC"
     if triageTarget:
       response = response + "\n" + triage.begin(conf, triageTarget, name, details)

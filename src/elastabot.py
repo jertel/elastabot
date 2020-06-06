@@ -11,7 +11,7 @@ import json
 import elastalerthelp
 import elastichelp
 import triage
-from slackclient import SlackClient
+import slack
 
 class Elastabot():
   def __init__(self):
@@ -42,28 +42,16 @@ class Elastabot():
 
   # Main loop for the bot, connects to slack and watches for incoming commands
   def run(self):
-    self.running = self.init()
-    self.log.info("Slack bot connecting to server")
-    self.slack_client = SlackClient(self.slackBotToken)
-    if self.slack_client.rtm_connect(with_team_state=False):
-      starterbot_id = self.slack_client.api_call("auth.test")["user_id"]
-      self.log.info("Slack bot connected; botId=" + starterbot_id)
-      while self.running:
-        command, args, channel, user = self.parse_bot_commands(self.slack_client.rtm_read())
-        if command:
-          self.handle_command(self.slack_client, command, args, channel, user)
-        time.sleep(1)
-    else:
-      self.log.error("Slack bot connection failed.")
+    if self.init():
+      self.log.info("Slack bot connecting to server")
+      self.slack_client = slack.RTMClient(token=self.slackBotToken)
+      self.slack_client.on(event='message', callback=handle_message)
+      self.slack_client.start()
 
   # Parses incoming message for a valid command
-  def parse_bot_commands(self, slack_events):
-    for event in slack_events:
-      if event["type"] == "message" and not "subtype" in event:
-        command, args = self.parse_command(event["text"])
-        user = event["user"]
-        return command, args, event["channel"], user
-    return None, None, None, None
+  def parse_bot_command(self, event):
+    command, args = self.parse_command(event["text"])
+    return command, args, event["channel"], event["user"]
 
   # Splits the command and arguments apart
   def parse_command(self, message_text):
@@ -87,8 +75,7 @@ class Elastabot():
       response = self.help()
 
     msg = response.strip().replace("${prefix}", self.conf['commandPrefix'])
-    client.api_call(
-        "chat.postMessage",
+    client.chat_postMessage(
         as_user=True,
         channel=channel,
         text=msg or default_response
@@ -105,10 +92,18 @@ ${prefix}help     - This help message
 Specify `${prefix}command help` for more information about a specific command. Ex: `${prefix}ack help`
 ```"""
 
+def handle_message(**payload):
+  data = payload['data']
+  command, args, channel, user = bot.parse_bot_command(data)
+  if command:
+    bot.handle_command(payload['web_client'], command, args, channel, user)
+
+
 def handle_signal(signal, frame):
   os._exit(0)
 
 def main():
+  global bot
   signal.signal(signal.SIGINT, handle_signal)
   bot = Elastabot()
   bot.run()
