@@ -34,7 +34,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | setting                        | description                                                                                                              | default
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------|--------
 | image.repository               | Docker image repository                                                                                                  | `jertel/elastabot`
-| image.tag                      | Tag, typically the version, of the Docker image                                                                          | `1.1.0`
+| image.tag                      | Tag, typically the version, of the Docker image                                                                          | `1.2.0`
 | image.pullPolicy               | Kubernetes image pull policy                                                                                             | `IfNotPresent`
 | commandPrefix                  | Special character or phrase to trigger the bot, typically an exclamation point, !. Ex: !ack                              | `!`
 | elasticsearch.host             | Hostname for the Elasticsearch server                                                                                    |
