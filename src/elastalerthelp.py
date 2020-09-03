@@ -64,7 +64,7 @@ The following examples will acknowledge the most recent triggered alert:
   durationMin = None
   if args:
     splitArgs = args.split("|", 1)
-    name = splitArgs[0].replace(" ", "\\ ").strip()
+    name = splitArgs[0].strip().replace(" ", "\\ ")
     if len(splitArgs) > 1:
       durationMin = splitArgs[1].strip()
 
