@@ -182,7 +182,8 @@ An example configuration file is shown below, followed by descriptions of each s
   },
   "commandPrefix": "!",
   "triageTarget": "smtp",
-  "searchEnabled": true
+  "searchEnabled": true,
+  "debug": false
 }
 ```
 
@@ -209,6 +210,7 @@ An example configuration file is shown below, followed by descriptions of each s
 | commandPrefix                  | Special character or phrase to trigger the bot, typically an exclamation point, !. Ex: !ack
 | triageTarget                   | How to initiate the triage process, currently only smtp is supported.
 | searchEnabled                  | Allows generic, arbitrary searching of the Elasticsearch cluster. Should not be enabled if sensitive information is stored in the cluster.
+| debug                          | If true, will output debug logging to help troubleshoot connectivity problems.
 
 ### Environment Variables
 

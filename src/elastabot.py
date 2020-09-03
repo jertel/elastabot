@@ -36,7 +36,10 @@ class Elastabot():
     else:
       self.slackBotToken = self.slackBotToken.strip()
 
-    logging.basicConfig(level=logging.INFO)
+    if self.conf['debug'] == True:
+      logging.basicConfig(level=logging.DEBUG)
+    else:
+      logging.basicConfig(level=logging.INFO)
 
     return configured
 

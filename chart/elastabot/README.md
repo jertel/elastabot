@@ -34,7 +34,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | setting                        | description                                                                                                              | default
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------|--------
 | image.repository               | Docker image repository                                                                                                  | `jertel/elastabot`
-| image.tag                      | Tag, typically the version, of the Docker image                                                                          | `1.4.0`
+| image.tag                      | Tag, typically the version, of the Docker image                                                                          | `1.5.0`
 | image.pullPolicy               | Kubernetes image pull policy                                                                                             | `IfNotPresent`
 | commandPrefix                  | Special character or phrase to trigger the bot, typically an exclamation point, !. Ex: !ack                              | `!`
 | elasticsearch.host             | Hostname for the Elasticsearch server                                                                                    |
@@ -57,6 +57,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | smtp.debug                     | If true, the SMTP connectivity details will be logged to stdout                                                          | `false`
 | triageTarget                   | How to initiate the triage process, currently only smtp is supported.                                                    | `smtp`
 | searchEnabled                  | Allow all Slack users to search the Elasticsearch cluster for any data. Disable in public communities with sensitive data| `true`
+| debug                          | If true, will output debug logging to help troubleshoot connectivity problems.                                           | `false`
 
 ## Secrets
 

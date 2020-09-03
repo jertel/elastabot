@@ -1,7 +1,7 @@
 # Docker image repository, tag/version and related settings
 image:
   repository: jertel/elastabot
-  tag: 1.4.0
+  tag: 1.5.0
   pullPolicy: IfNotPresent
 
 # Elasticsearch settings, required.
@@ -67,6 +67,8 @@ triageTarget: smtp
 # Allow all Slack users to search the Elasticsearch cluster for any data.
 # CAUTION: Disable this when this bot is exposed to a public Slack community and the cluster contains sensitive data.
 searchEnabled: true
+
+debug: False
 
 resources: {}
 nodeSelector: {}
