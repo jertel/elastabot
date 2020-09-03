@@ -13,6 +13,8 @@ Slack provides a special link to create a classic bot in your community: https:/
 
 Elastabot will only work with classic bots. Use the link above to create the new classic bot, but do not click the button to switch to granular permissions! Switching to granular permissions will effectively upgrade the classic bot to a modern Slack bot and you'll have to start over. 
 
+Once you create the classic bot and install it into your workspace you'll see a screen presenting two tokens. Use the bottom "Bot User" token for the configuration parameter mentioned below. Do not use the OAuth Token.
+
 Step-by-step instructions:
 
 1. Click the special link to create a classic bot (shown above)
@@ -25,8 +27,6 @@ Step-by-step instructions:
 8. Click "Install App to Workspace".
 9. Click "Allow" on the permission confirmation screen.
 10. Copy the bottom "Bot User Oauth Access Token" for use during installation of Elastabot.
-
-Once you create the classic bot and install it into your workspace you'll see a screen presenting two tokens. Use the bottom "Bot User" token for the configuration parameter mentioned below. Do not use the OAuth Token.
 
 ## Search
 
