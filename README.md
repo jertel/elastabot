@@ -11,7 +11,22 @@ Slack bot that listens for commands from Slack users to:
 
 Slack provides a special link to create a classic bot in your community: https://api.slack.com/apps?new_classic_app=1
 
-Elastabot will only work with classic bots. Use the link above to create the new classic bot, but do not click the button to switch to granular permissions! This will effectively upgrade the classic bot to a modern Slack bot and you'll have to start over. Once you create the classic bot and install it into your workspace you'll see a screen presenting two tokens. Use the bottom "Bot User" token for the configuration parameter mentioned below. Do not use the OAuth Token.
+Elastabot will only work with classic bots. Use the link above to create the new classic bot, but do not click the button to switch to granular permissions! Switching to granular permissions will effectively upgrade the classic bot to a modern Slack bot and you'll have to start over. 
+
+Step-by-step instructions:
+
+1. Click the special link to create a classic bot (shown above)
+2. A popup form will appear entitled "Create a Slack App (Classic)"
+3. Enter a name, such as "Elastabot", and choose your Slack community from the drop-down and then click the "Create App" button.
+4. Click the "Bots" box.
+5. Click "Add Legacy Bot User"
+6. Enter a name for the bot, such as "Elastabot", and enter a username, such "elastabot" (lowercase) and click "Add" button.
+7. Click "Install App" from the left-side menu.
+8. Click "Install App to Workspace".
+9. Click "Allow" on the permission confirmation screen.
+10. Copy the bottom "Bot User Oauth Access Token" for use during installation of Elastabot.
+
+Once you create the classic bot and install it into your workspace you'll see a screen presenting two tokens. Use the bottom "Bot User" token for the configuration parameter mentioned below. Do not use the OAuth Token.
 
 ## Search
 
