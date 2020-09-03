@@ -68,7 +68,15 @@ The command removes all the Kubernetes components associated with the chart and 
 | smtpUsername           | false    | Optional SMTP username, provided by your SMTP admin (used with SMTP triage target)
 | smtpPassword           | false    | Optional SMTP password, provided by your SMTP admin (used with SMTP triage target)
 
-Below is a sample secrets.yaml file that can be used as a template. Remember that all secrets must be base64-encoded.
+Below is a sample secrets.yaml file that can be used as a template. Remember that all secrets must be base64-encoded. You can do this via a Linux terminal as follows:
+
+```bash
+echo -n "xoxb-xxxx-yyyy-zzzzzz" | base64
+```
+
+Note the `-n` is critical when created secrets with this technique, to avoid linefeeds getting mixed in with the secrets.
+
+IMPORTANT - Please see the note in the Elastabot main [README.md](../../README.md) where it explains how to create a classic bot in order to use this Elastabot. Skipping over this information will prevent Elastabot from connecting to your Slack community.
 
 ```yaml
 apiVersion: v1

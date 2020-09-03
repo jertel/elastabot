@@ -7,6 +7,12 @@ Slack bot that listens for commands from Slack users to:
 * Acknowledge an alert created by elastalert
 * Triage alerts or arbitrary issues
 
+## MUST READ: Classic Slack bot is required!
+
+Slack provides a special link to create a classic bot in your community: https://api.slack.com/apps?new_classic_app=1
+
+Elastabot will only work with classic bots. Use the link above to create the new classic bot, but do not click the button to switch to granular permissions! This will effectively upgrade the classic bot to a modern Slack bot and you'll have to start over. Once you create the classic bot and install it into your workspace you'll see a screen presenting two tokens. Use the bottom "Bot User" token for the configuration parameter mentioned below. Do not use the OAuth Token.
+
 ## Search
 
 Slack users can search the Elasticsearch cluster for arbitrary search criteria, using the Lucene syntax. This can be useful for maintaining a history of searches, but needs to be used with caution. Certain Slack communities with public access should not enable this feature if the Elasticsearch cluster contains sensitive data.
