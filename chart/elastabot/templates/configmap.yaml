@@ -36,6 +36,6 @@ data:
       },
       "commandPrefix": "{{ .Values.commandPrefix }}",
       "triageTarget": "{{ .Values.triageTarget }}",
-      "searchEnabled": "{{ .Values.searchEnabled }}",
+      "searchEnabled": {{ .Values.searchEnabled }},
       "debug": {{ .Values.debug }}
     }
