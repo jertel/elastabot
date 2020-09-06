@@ -8,9 +8,9 @@ log = logging.getLogger('smtphelp')
 
 def send(conf, subject, body):
   if conf['smtp'].get('secure'):
-    server = smtplib.SMTP_SSL(timeout=conf['smtp']['timeoutSeconds'])  
+    server = smtplib.SMTP_SSL(host=conf['smtp']['host'], timeout=conf['smtp']['timeoutSeconds'])  
   else:
-    server = smtplib.SMTP(timeout=conf['smtp']['timeoutSeconds'])  
+    server = smtplib.SMTP(host=conf['smtp']['host'], timeout=conf['smtp']['timeoutSeconds'])  
 
   if conf['smtp'].get('debug'):
     log.info("Enabled debug logging")
