@@ -97,9 +97,10 @@ Specify `${prefix}command help` for more information about a specific command. E
 
 def handle_message(**payload):
   data = payload['data']
-  command, args, channel, user = bot.parse_bot_command(data)
-  if command:
-    bot.handle_command(payload['web_client'], command, args, channel, user)
+  if "text" in data:
+    command, args, channel, user = bot.parse_bot_command(data)
+    if command:
+      bot.handle_command(payload['web_client'], command, args, channel, user)
 
 
 def handle_signal(signal, frame):
