@@ -1,7 +1,7 @@
 # Docker image repository, tag/version and related settings
 image:
   repository: jertel/elastabot
-  tag: 1.5.2
+  tag: 1.5.3
   pullPolicy: IfNotPresent
 
 # Elasticsearch settings, required.
