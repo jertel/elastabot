@@ -8,13 +8,13 @@ An Elastabot chart is available in the Codesim LLC Helm repository, and can be i
 Add the Codesim repository to your Helm configuration:
 
 ```console
-helm repo add codesim https://helm.codesim.com
+helm repo add jertel https://helm.jertel.com
 ```
 
 Next, install the chart with a release name, such as elastabot:
 
 ```console
-helm install elastabot codesim/elastabot
+helm install elastabot jertel/elastabot
 ```
 
 The command deploys Elastabot on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation. The [secrets](#secrets) section lists the required Kubernetes secrets.
